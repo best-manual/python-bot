@@ -15,4 +15,4 @@ def webhook():
 
 @bp.route('/')
 def hello_world():
-    return 'Hello New World 6!'
+    return 'Hello New World 7!'
