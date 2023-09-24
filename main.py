@@ -1,7 +1,6 @@
-from flask import Flask, json, request
+from flask import Flask
 from routes import bp  # Импортируем Blueprint из routes.py
 import logging
-import git
 
 logging.basicConfig(level=logging.DEBUG)
 
