@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, request
 
 # Создаем объект Blueprint
 bp = Blueprint('my_routes', __name__)
