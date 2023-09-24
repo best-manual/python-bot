@@ -1,4 +1,5 @@
 from flask import Flask, json, request
+from routes import bp  # Импортируем Blueprint из routes.py
 import logging
 import git
 
@@ -6,17 +7,9 @@ logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 
-@app.route('/update_server', methods=['POST'])
-def webhook():
-    if request.method == 'POST':
-        repo = git.Repo('python-bot')
-        origin = repo.remotes.origin
-        origin.pull()
-        return 'Updated PythonAnywhere successfully', 200
-    else:
-        return 'Wrong event type', 400
+# Регистрируем Blueprint в приложении
+app.register_blueprint(bp)
 
-@app.route('/')
-def hello_world():
-    return 'Hello New World 5!'
+if __name__ == '__main__':
+    app.run()
 
